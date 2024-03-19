@@ -1,73 +1,76 @@
-import React from 'react';
-import {
-  MDBBtn,
-  MDBContainer,
-  MDBRow,
-  MDBCol,
-  MDBCard,
-  MDBCardBody,
-  MDBCardImage,
-  MDBInput,
-  MDBIcon,
-  MDBCheckbox
-}
-from 'mdb-react-ui-kit';
-import 'mdb-react-ui-kit/dist/css/mdb.min.css';
-import "@fortawesome/fontawesome-free/css/all.min.css"; 
+import React, { useState } from 'react';
+import "./Register.css";
+import { Link } from 'react-router-dom'; 
+function Register() {
+  const [isSignUpActive, setIsSignUpActive] = useState(true);
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
 
-function App() {
+  const handleSignUpClick = () => {
+    console.log("Sign up button clicked");
+    setIsSignUpActive(true);
+  };
+
+  const handleSignInClick = () => {
+    console.log("Sign in button clicked");
+    setIsSignUpActive(false);
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (email === 'admin@gmail.com' && password === 'admin12345') {
+      // Navigate to admin home if the email and password match
+      window.location.href = "/admin-home";
+    } else {
+      // Navigate to regular home
+      window.location.href = "/home";
+    }
+  };
+  
+
   return (
-    <MDBContainer fluid>
-
-      <MDBCard className='text-black m-5' style={{borderRadius: '25px'}}>
-        <MDBCardBody>
-          <MDBRow>
-            <MDBCol md='10' lg='6' className='order-2 order-lg-1 d-flex flex-column align-items-center'>
-
-              <p classNAme="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">Sign up</p>
-
-              <div className="d-flex flex-row align-items-center mb-4 ">
-                <MDBIcon fas icon="user me-3" size='lg'/>
-                <MDBInput label='Your Name' id='form1' type='text' className='w-100'/>
-              </div>
-
-              <div className="d-flex flex-row align-items-center mb-4">
-                <MDBIcon fas icon="envelope me-3" size='lg'/>
-                <MDBInput label='Your Email' id='form2' type='email'/>
-              </div>
-
-              <div className="d-flex flex-row align-items-center mb-4">
-                <MDBIcon fas icon="lock me-3" size='lg'/>
-                <MDBInput label='Password' id='form3' type='password'/>
-              </div>
-
-              <div className="d-flex flex-row align-items-center mb-4">
-                <MDBIcon fas icon="key me-3" size='lg'/>
-                <MDBInput label='Repeat your password' id='form4' type='password'/>
-              </div>
-
-              <div className='mb-4'>
-                <MDBCheckbox name='flexCheck' value='' id='flexCheckDefault' label='I agree to terms and conditions' />
-              </div>
-              <div className='mb-4'>
-                <MDBCheckbox name='flexCheck' value='' id='flexCheckDefault' label='Already have an account' />
-              </div>
-
-              <MDBBtn className='mb-4' size='lg'>Login</MDBBtn>
-              <MDBBtn className='mb-4' size='lg'>Register</MDBBtn>
-
-            </MDBCol>
-
-            <MDBCol md='10' lg='6' className='order-1 order-lg-2 d-flex align-items-center'>
-              <MDBCardImage src='https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-registration/draw1.webp' fluid/>
-            </MDBCol>
-
-          </MDBRow>
-        </MDBCardBody>
-      </MDBCard>
-
-    </MDBContainer>
+    <div className={`uniqueContainer ${isSignUpActive ? 'right-panel-active' : ''}`}>
+      <div className="uniqueFormContainer uniqueSignUpContainer">
+        <form className="uniqueForm">
+          <h1>Create Account</h1>
+          <input type="role" className="uniqueInput" placeholder="Role" />
+          <input type="text" className="uniqueInput" placeholder="Name" />
+          <input type="email" className="uniqueInput" placeholder="Email" />
+          <input type="number" className="uniqueInput" placeholder="Mobile Number" />
+          <input type="password" className="uniqueInput" placeholder="Password" />
+          <input type="confirm-password" className="uniqueInput" placeholder="Confirm-Password" />
+          <Link to="/home"><button className="uniqueButton" onClick={handleSignUpClick}>Sign Up</button></Link>
+        </form>
+      </div>
+      <div className="uniqueFormContainer uniqueSignInContainer">
+        <form className="uniqueForm">
+          <h1>Sign in</h1>
+          <span>or use your account</span>
+          <input type="email" className="uniqueInput" placeholder="Email" />
+          <input type="password" className="uniqueInput" placeholder="Password" />
+          <Link to="/home"><button className="uniqueButton" onClick={handleSignInClick}>Sign In</button></Link>
+        </form>
+      </div>
+      <div className="uniqueOverlayContainer">
+        <div className="uniqueOverlay">
+          <div className="uniqueOverlayPanel uniqueOverlayLeft">
+            <h1>Welcome Back!</h1>
+            <p>To keep connected with us please login with your personal info</p>
+           <button className="uniqueButton ghost" onClick={handleSignInClick}>
+              Sign In
+            </button>
+          </div>
+          <div className="uniqueOverlayPanel uniqueOverlayRight">
+            <h1>Hello, Explorer!</h1>
+            <p>Enter your personal details and start journey with us</p>
+            <button className="uniqueButton ghost" onClick={handleSignUpClick}>
+              Sign Up
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
   );
 }
 
-export default App;
+export default Register;

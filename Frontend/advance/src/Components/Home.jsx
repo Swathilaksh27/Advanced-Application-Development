@@ -1,17 +1,25 @@
-import React from 'react'
-import "./Home.css"
-import Navbar from './Navbar'
-function Home() {
-  return (
-    <div>
-    <div><Navbar/></div>
-    <div className="banner-container">
-                       <div className="text-center">
-                            <h1 className=" clear">Welcome to Birthday Bash</h1>
-                           <h4 className="quote">Make every birthday unforgettable with our expert event management services!</h4>
-                       </div>
-                       </div></div>
-  )
-}
+import React from 'react';
+import "./Home.css";
+import { Link } from 'react-router-dom';
+import Navbar from './Navbar';
+import Footer from './Footer'
+function Home()
 
-export default Home
+{
+    return(
+        <div>
+        <Navbar/>
+        <div className='home-container'>
+        <h1 className='home'>JOIN US FOR AN UNFORGETTABLE EVENT EXPERIENCE</h1><br/>
+        <div className='text'>
+        <p>Get ready for an event that will leave you breathless! Our upcoming event promises to be an extraordinary</p>
+        <p>experience, filled with captivating moments, exhilarating performances, and unforgettable memories.</p>
+        </div>
+        <br/><br/>
+        <h5><Link to='/book'><button type="submit" className='but-book'>BOOK NOW</button></Link></h5>
+        <Footer/>
+        </div>
+        </div>
+    );
+}
+export default Home;

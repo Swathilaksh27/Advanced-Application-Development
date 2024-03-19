@@ -1,38 +1,49 @@
 .navbar {
-    background-color: #fff;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    padding: 20px 0;
-  }
-  
-  .container {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    padding: 10px 20px;
+    background-color: #f0f0f0; /* Adjust background color as needed */
   }
   
-  .logo {
-    font-size: 1.5rem;
-    font-weight: bold;
-    color: #333;
-    text-decoration: none;
+  .navbar-logo img {
+    width: 100px; /* Adjust logo width as needed */
+    height: auto; /* Maintain aspect ratio */
   }
   
-  .nav-links {
-    list-style: none;
+  .navbar-links ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
     display: flex;
   }
   
-  .nav-links li {
+  .navbar-links ul li {
     margin-right: 20px;
   }
   
-  .nav-links a {
-    color: #333;
+  .navbar-links ul li:last-child {
+    margin-right: 0;
+  }
+  
+  .navbar-links ul li a {
     text-decoration: none;
-    transition: color 0.3s ease;
+    color: #333; /* Adjust link color as needed */
   }
   
-  .nav-links a:hover {
-    color: #007bff;
+  /* Styles for Avatar component */
+  .MuiAvatar-root {
+    cursor: pointer;
   }
-  
+  .logout-button {
+    background-color: transparent;
+    border: none;
+    color: white;
+    cursor: pointer;
+    font-size: 14px;
+    margin-left: 10px;
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+  }
