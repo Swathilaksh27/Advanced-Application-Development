@@ -3,7 +3,7 @@
     justify-content: space-between;
     align-items: center;
     padding: 10px 20px;
-    background-color: #f0f0f0; /* Adjust background color as needed */
+    background-color: transparent; /* Adjust background color as needed */
   }
   
   .navbar-logo img {
@@ -28,7 +28,7 @@
   
   .navbar-links ul li a {
     text-decoration: none;
-    color: #333; /* Adjust link color as needed */
+    color: #000000; /* Adjust link color as needed */
   }
   
   /* Styles for Avatar component */

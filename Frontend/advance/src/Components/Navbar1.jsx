@@ -20,11 +20,6 @@ const AdminNavbar = () => {
       <nav style={{ backgroundColor: '#333', color: '#fff', padding: '10px' }}>
         <div className="navbar-container">
           <div><SideBar /></div>
-          <Link to="/admin-home">
-          <button onClick={handleClick} style={buttonStyle}>
-      Home
-    </button>
-    </Link>
           <div className="navbar-content" style={{ color: 'white', fontSize: '24px' }}>
             {/* Adjust the fontSize value based on your preference */}
             <p style={{ fontSize:'24px' ,color: 'white'}}>Welcome, Admin</p>

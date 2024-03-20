@@ -57,8 +57,8 @@ export default function Sidebar() {
             <ListItemIcon>
               <CollectionsIcon />
             </ListItemIcon>
-            
-              <ListItemText primary="Add Theme" />
+            <Link to="/book">
+              <ListItemText primary="Add Theme" /></Link>
            
           </ListItemButton>
         </ListItem>

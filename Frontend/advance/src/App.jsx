@@ -11,7 +11,6 @@ import ViewBookedevent from './Components/ViewBookedevent';
 import Home2 from './Components/Home2'
 
 function App() {
-  // const [count, setCount] = useState(0)
   return (
     <BrowserRouter>
     <Routes>
@@ -25,8 +24,6 @@ function App() {
     <Route path='/admin-home' element={<Home2/>}/>
     </Routes>
     </BrowserRouter>
-      
-    
     )
   }
   

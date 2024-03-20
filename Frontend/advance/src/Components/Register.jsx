@@ -26,8 +26,6 @@ function Register() {
       window.location.href = "/home";
     }
   };
-  
-
   return (
     <div className={`uniqueContainer ${isSignUpActive ? 'right-panel-active' : ''}`}>
       <div className="uniqueFormContainer uniqueSignUpContainer">
