@@ -4,24 +4,27 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import jakarta.persistence.Table;
 
 @Entity
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name="userdetails")
-public class User {
-    @Id
+@Table(name="theme")
+public class Theme {
+     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
-    private String email;
-    private String name;
-    private String password;
-    private String mobilenumber;
-    private String role;
+    private String tname;
+    private String image;
+    private String phdetails;
+    private String videtails;
+    private String gift;
+    private String cost;
+    private String description;
+
     
 }
