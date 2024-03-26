@@ -19,11 +19,7 @@ public class UserService {
     private com.example.bbash.repository.Userrepo userRepository;
 
 
-    public User createUser(@NonNull User user)   //()-->Parameter,passing data called argument
-    {
-        return userRepository.save(user);
-
-    }
+    
     
     //getuser by email
     public Optional <User> getUserByEmail(String email)
@@ -40,7 +36,7 @@ public class UserService {
     public User updateUser(@NonNull String email,UpdateRequest updateRequest){
         return userRepository.findByEmail(email)  //user data are fetched by email by findByEmil method.
             .map(existingUser -> {
-                existingUser.setName(updateRequest.getUsername());  //this map method name will be updates in the existing user
+                existingUser.setUsername(updateRequest.getUsername()); //this map method name will be updates in the existing user
                 existingUser.setEmail(updateRequest.getEmail());
                 existingUser.setPassword(updateRequest.getPassword());
                 return userRepository.save(existingUser);

@@ -27,20 +27,15 @@ import org.springframework.web.bind.annotation.RequestBody;
 
 
 @RestController
-@RequestMapping("/api/users") //used for additional data to be showed in the url
+@RequestMapping("/user") //used for additional data to be showed in the url
 
 public class UserController {
 
     @Autowired
     private UserService userService;
 
-    //creating a data
-    @PostMapping("/createUser")
-    public ResponseEntity<User> createUser(@NonNull @RequestBody User user){
-        User createdUser = userService.createUser(user);
-        return new ResponseEntity<>(createdUser, HttpStatus.CREATED);
-    }
     
+   
     @GetMapping("readUser/{email}")
     @PreAuthorize("hasAuthority('USER') or hasAuthority('ADMIN')")
     public ResponseEntity<?> getUserByEmail(@PathVariable String email) {

@@ -28,17 +28,13 @@ public class SecurityConfig {
         public SecurityFilterChain securityFilterChain(HttpSecurity httpSecurity) throws Exception {
                 return httpSecurity
                                 .csrf(AbstractHttpConfigurer::disable)
-                                .authorizeHttpRequests(
-                                                request -> request.requestMatchers("/api/users/createUser",
-                                                                "/api/auth/home",
-                                                                "/api/auth/authenticate").permitAll())
-                                .authorizeHttpRequests(request -> request
-                                                .requestMatchers("/v3/api-docs/**", "/swagger-ui.html",
-                                                                "/swagger-ui/**")
-                                                .permitAll())
                                 .authorizeHttpRequests(requests -> requests
-                                                .requestMatchers("/api/users/**", "/api/auth/**", "/api/course/**")
-                                                .authenticated())
+                                .requestMatchers( "/auth/**","/admin/**","/v3/api-docs/**",
+                                        "/swagger-ui.html", "/swagger-ui/**")
+                                .permitAll())
+                        .authorizeHttpRequests(requests -> requests.requestMatchers("/user/**")
+                                .authenticated())
+        
                                 .sessionManagement(session -> session
                                                 .sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                                 .authenticationProvider(authenticationProvider)
